@@ -2,17 +2,14 @@ package com.hmdp.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hmdp.dto.LoginFormDTO;
 import com.hmdp.dto.Result;
 import com.hmdp.dto.UserDTO;
-import com.hmdp.entity.Blog;
 import com.hmdp.entity.User;
 import com.hmdp.entity.UserInfo;
 import com.hmdp.service.IBlogService;
 import com.hmdp.service.IUserInfoService;
 import com.hmdp.service.IUserService;
-import com.hmdp.utils.SystemConstants;
 import com.hmdp.utils.UserHolder;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * <p>
@@ -108,6 +104,24 @@ public class UserController {
         // 返回
         return Result.ok(userDTO);
     }
+    @PostMapping("/sign")
+    public Result sign(){
+        return userService.sign();
+    }
+    /**
+     * 统计连续签到
+     * @return
+     */
+    /**
+     * 统计连续签到
+     * @return
+     */
+    @PostMapping("/sign/count")
+    public Result signCount(){
+        return userService.signCount();
+    }//应该是get
+
+
 
 
 
